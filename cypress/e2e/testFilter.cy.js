@@ -60,91 +60,91 @@ describe('testFilter.cy.js', () => {
     cy.get('.data-filter-values').contains(`Пригодность: ${data.suitability}`).should('be.visible');
   })
 
-  it('Check data organization filter values', () => {
+  it('Check data organization filter value', () => {
     goToMainPage(URL);
     fillFieldAndCheckData('#filter_org_title', data.organization);
     confirmFilter();
     cy.get('.data-filter-values').contains(`Организация-поверитель: ${data.organization}`).should('be.visible');
   })
 
-  it('Check data reg number of ci type filter values', () => {
+  it('Check data reg number of ci type filter value', () => {
     goToMainPage(URL);
     fillFieldAndCheckData('#filter_mi_mitnumber', data.regNumberCiType);
     confirmFilter();
     cy.get('.data-filter-values').contains(`Регистрационный номер типа СИ: ${data.regNumberCiType}`).should('be.visible');
   })
 
-  it('Check data name of ci type filter values', () => {
+  it('Check data name of ci type filter value', () => {
     goToMainPage(URL);
     fillFieldAndCheckData('#filter_mi_mititle', data.nameOfCiType);
     confirmFilter();
     cy.get('.data-filter-values').contains(`Наименование типа СИ: ${data.nameOfCiType}`).should('be.visible');
   })
 
-  it('Check data ci type filter values', () => {
+  it('Check data ci type filter value', () => {
     goToMainPage(URL);
     fillFieldAndCheckData('#filter_mi_mitype', data.ciType);
     confirmFilter();
     cy.get('.data-filter-values').contains(`Тип СИ: ${data.ciType}`).should('be.visible');
   })
 
-  it('Check data modification ci filter values', () => {
+  it('Check data modification ci filter value', () => {
     goToMainPage(URL);
     fillFieldAndCheckData('#filter_mi_modification', data.modificationCi);
     confirmFilter();
     cy.get('.data-filter-values').contains(`Модификация СИ: ${data.modificationCi}`).should('be.visible');
   })
 
-  it('Check data serial number filter values', () => {
+  it('Check data serial number filter value', () => {
     goToMainPage(URL);
     fillFieldAndCheckData('#filter_mi_number', data.serialNumber);
     confirmFilter();
     cy.get('.data-filter-values').contains(`Заводской номер/ Буквенно-цифровое обозначение: ${data.serialNumber}`).should('be.visible');
   })
 
-  it('Check data verification start date filter values', () => {
+  it('Check data verification start date filter value', () => {
     goToMainPage(URL);
     fillFieldAndCheckData('#filter_verification_date_start', data.verificationDateStart);
     confirmFilter();
     cy.get('.data-filter-values').contains(`Дата поверки: от ${data.verificationDateStart}`).should('be.visible');
   })
 
-  it('Check data verification date end filter values', () => {
+  it('Check data verification date end filter value', () => {
     goToMainPage(URL);
     fillFieldAndCheckData('#filter_verification_date_end', data.verificationDateEnd);
     confirmFilter();
     cy.get('.data-filter-values').contains(`Дата поверки: до ${data.verificationDateEnd}`).should('be.visible');
   })
 
-  it('Check data valid start date filter values', () => {
+  it('Check data valid start date filter value', () => {
     goToMainPage(URL);
     fillFieldAndCheckData('#filter_valid_date_start', data.validDateStart);
     confirmFilter();
     cy.get('.data-filter-values').contains(`Действительна до: от ${data.validDateStart}`).should('be.visible');
   })
 
-  it('Check data valid date end filter values', () => {
+  it('Check data valid date end filter value', () => {
     goToMainPage(URL);
     fillFieldAndCheckData('#filter_valid_date_end', data.validDateEnd);
     confirmFilter();
     cy.get('.data-filter-values').contains(`Действительна до: до ${data.validDateEnd}`).should('be.visible'); //TODO выглядит прям не ок
   })
 
-  it('Check data certificate number filter values', () => {
+  it('Check data certificate number filter value', () => {
     goToMainPage(URL);
     fillFieldAndCheckData('#filter_result_docnum', data.certificateNumber);
     confirmFilter();
     cy.get('.data-filter-values').contains(`Номер свидетельства/ Номер извещения: ${data.certificateNumber}`).should('be.visible');
   })
 
-  it('Check data sticker number filter values', () => {
+  it('Check data sticker number filter value', () => {
     goToMainPage(URL);
     fillFieldAndCheckData('#filter_sticker_num', data.stickerNumber);
     confirmFilter();
     cy.get('.data-filter-values').contains(`Номер наклейки: ${data.stickerNumber}`).should('be.visible');
   })
 
-  it('Check data suitability filter values', () => {
+  it('Check data suitability filter value', () => {
     goToMainPage(URL);
     cy.get('#filter_applicability').select(data.suitability);
     confirmFilter();
@@ -155,9 +155,9 @@ describe('testFilter.cy.js', () => {
   /* 
   Чек-лист:
   Позитивные:
-    1) Каждый фильтр
-    2) Совокупность каждого к каждому(реализация через алгоритм)
-    3) Регистрозависимость?
+    1) Каждый фильтр ✔
+    2) Совокупность каждого к каждому(реализация через алгоритм) ?
+    3) Регистрозависимость ? избыточно
     4) Граничные для количества символов - сломалась верстка + сыпят 403 и 414 ошибки
     
   Негативные:
@@ -170,7 +170,9 @@ describe('testFilter.cy.js', () => {
       IV) ввод примитивов - на типизацию глянуть
   */
 
-  /* Кнопка Очистить работает как очистить и закрыть?)
+  /* Кнопка Очистить работает как очистить и закрыть?)э
+    при вводе цифры в даты выбирается дата - фича?
     todo про номер наклейки
+    нет валидации на датах от меньшего к большему
   */
 })
