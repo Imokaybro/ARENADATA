@@ -276,4 +276,14 @@ describe('testFilter.cy.js', () => {
     cancel();
     cy.get(filterValueLocate).contains(`Организация-поверитель: ${data.organization}`).should('be.visible');
   });
+
+  it('Check closing filter panel through the cross', () => {
+    goToMainPage(URL);
+    openFilterMenu();
+    fillFieldAndCheckData('#filter_org_title', data.organization);
+    confirmFilter();
+    cy.get(filterValueLocate).contains(`Организация-поверитель: ${data.organization}`).should('be.visible');
+    cy.get('.data-filter-values > div > .close1').click();
+    cy.get(filterValueLocate).should('exist');
+  });
 });
